@@ -1,0 +1,1 @@
+{"valid_login":{"username":"tomsmith","password":"SuperSecretPassword!"},"admin_user":{"username":"admin@test.com","password":"AdminPass123!","role":"admin"},"invalid_credentials":[{"username":"nobody","password":"wrong"},{"username":"","password":"SuperSecretPassword!"},{"username":"tomsmith","password":""}]}
