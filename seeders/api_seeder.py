@@ -1,4 +1,4 @@
-"""seeders/api_seeder.py - Seed test data via HTTP API"""
+"""seeders/api_seeder.py - Seed test data via HTTP API with auto-teardown"""
 import requests
 from factory.factories import APIPostFactory
 
