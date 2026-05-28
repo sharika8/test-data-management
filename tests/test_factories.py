@@ -1,4 +1,4 @@
-"""tests/test_factories.py - Unit tests for data factories"""
+"""Unit tests for data factories - all pure ASCII"""
 import pytest
 from factory.factories import UserFactory, ProductFactory, OrderFactory, APIPostFactory, CredentialsFactory
 
@@ -23,6 +23,14 @@ class TestProductFactory:
     def test_out_of_stock(self): assert ProductFactory.out_of_stock()["stock"] == 0
     def test_expensive(self): assert ProductFactory.expensive()["price"] >= 500
     def test_category(self): assert ProductFactory.in_category("electronics")["category"] == "electronics"
+
+
+class TestOrderFactory:
+    def test_has_items(self):
+        order = OrderFactory.build()
+        assert isinstance(order["items"], list) and len(order["items"]) >= 1
+    def test_completed(self): assert OrderFactory.completed()["status"] == "delivered"
+    def test_n_items(self): assert len(OrderFactory.with_n_items(3)["items"]) == 3
 
 
 class TestAPIPostFactory:
